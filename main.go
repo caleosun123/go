@@ -1,7 +1,15 @@
 package main;
 
-import "fmt"
+import (
+  "fmt"
+  "net/http"
+)
 
-func main() {
-  fmt.Printf("<h1>Welcome to the homepage!</h1?")
+func Handler(w http.ResponseWriter, r *http.request){
+  server := New()
+  server.get("/", func(context *Context){
+    context.JSON(200,H{
+      "message": "Hello, world!"
+    })
+  })
 }
